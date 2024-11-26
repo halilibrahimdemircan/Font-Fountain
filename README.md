@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./static/logo.png" width="200px" alt="Font Fountain Logo">
+  <img src="./src/static/logo.png" width="200px" alt="Font Fountain Logo">
 
   # Font Fountain
 </div>
