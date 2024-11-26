@@ -76,8 +76,14 @@ function setupPreviewArea() {
   const previewContainer = document.getElementById("preview-container");
 
   previewContainer.addEventListener("input", () => {
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    const cursorOffset = getCursorOffset(previewContainer, range);
+
+    // Recreate the spans while maintaining the cursor position
     const text = previewContainer.textContent;
     previewContainer.innerHTML = createCharacterSpans(text);
+    restoreCursorPosition(previewContainer, cursorOffset);
   });
 
   previewContainer.addEventListener("wheel", (event) => {
@@ -87,6 +93,58 @@ function setupPreviewArea() {
       event.preventDefault();
     }
   });
+}
+
+// Get the cursor's offset within the contenteditable element
+function getCursorOffset(container, range) {
+  let offset = 0;
+
+  function traverseNodes(node) {
+    if (node === range.startContainer) {
+      offset += range.startOffset;
+      return true;
+    }
+    if (node.nodeType === Node.TEXT_NODE) {
+      offset += node.textContent.length;
+    }
+    if (node.nodeType === Node.ELEMENT_NODE) {
+      for (let child of node.childNodes) {
+        if (traverseNodes(child)) return true;
+      }
+    }
+    return false;
+  }
+
+  traverseNodes(container);
+  return offset;
+}
+
+// Restore the cursor's position within the contenteditable element
+function restoreCursorPosition(container, offset) {
+  const range = document.createRange();
+  const selection = window.getSelection();
+
+  function setCursor(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      if (offset <= node.textContent.length) {
+        range.setStart(node, offset);
+        range.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        return true;
+      } else {
+        offset -= node.textContent.length;
+      }
+    }
+    if (node.nodeType === Node.ELEMENT_NODE) {
+      for (let child of node.childNodes) {
+        if (setCursor(child)) return true;
+      }
+    }
+    return false;
+  }
+
+  setCursor(container);
 }
 
 // Handle glyph rounding
