@@ -5,7 +5,7 @@
   --accent-color: #0F3460;
   --text-color: #E94560;
   --spacing-unit: 1rem;
-  --border-radius: 12px;
+  --border-radius: 8px;
 }
 
 body {
@@ -29,15 +29,16 @@ body {
   justify-content: space-between;
   padding: calc(var(--spacing-unit) * 1.5);
   background-color: var(--primary-color);
-  color: white;
+  color: black;
 }
 
 #logo {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
   margin-right: var(--spacing-unit);
   transition: transform 0.3s ease;
+  border-radius: var(--border-radius);
 }
 
 #logo:hover {
@@ -56,10 +57,12 @@ body {
 }
 
 #history-list {
-  display: flex;
-  gap: 0.5rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  padding: 0.5rem 0;
+  max-height: 60px;
+  overflow-y: auto;
 }
 
 main {
@@ -75,7 +78,7 @@ main {
   border-radius: var(--border-radius);
   padding: calc(var(--spacing-unit) * 1.5);
   font-size: 2.75rem;
-  min-height: 200px;
+  min-height: 160px;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -103,12 +106,12 @@ main {
 
 #font-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
 }
 
 .font-item {
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: white;
   border-radius: var(--border-radius);
   text-align: center;
@@ -118,7 +121,7 @@ main {
 }
 
 .font-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
   background-color: var(--accent-color);
   color: white;
