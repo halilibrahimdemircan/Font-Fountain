@@ -31,7 +31,7 @@ function initializeApp() {
     <header id="app-identity">
       <img src="./static/logo.png" id="logo" alt="Font Fountain Logo">
       <div id="recently-viewed">
-        <h2>Recently Viewed</h2>
+        <h2>Preview History</h2>
         <div id="history-list"></div>
       </div>
     </header>
@@ -79,7 +79,6 @@ function setupPreviewArea() {
     const selection = window.getSelection();
     const range = selection.getRangeAt(0);
     const cursorOffset = getCursorOffset(previewContainer, range);
-
     // Recreate the spans while maintaining the cursor position
     const text = previewContainer.textContent;
     previewContainer.innerHTML = createCharacterSpans(text);
