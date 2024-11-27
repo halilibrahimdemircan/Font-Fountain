@@ -38,7 +38,7 @@ function initializeApp() {
     <main>
       <section id="font-preview">
         <div id="preview-container" class="preview-text" contenteditable="true">
-          ${createCharacterSpans("Explore the beauty of typography.")}
+          ${createCharacterSpans("Whereas disregard and contempt for human rights have resulted")}
         </div>
       </section>
       <footer id="font-browser">
@@ -201,6 +201,7 @@ function addToHistory(fontName) {
     historyItem.addEventListener("click", () => {
       const previewContainer = document.getElementById("preview-container");
       previewContainer.style.fontFamily = fontName;
+      highlightSelectedFont(fontName);
     });
 
     historyList.appendChild(historyItem);
