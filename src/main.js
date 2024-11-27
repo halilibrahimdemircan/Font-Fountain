@@ -167,7 +167,24 @@ function selectFont(fontName) {
   const previewContainer = document.getElementById("preview-container");
   previewContainer.style.fontFamily = fontName;
 
+  // Add font to history
   addToHistory(fontName);
+
+  // Highlight the selected font
+  highlightSelectedFont(fontName);
+}
+
+// Highlight the selected font in the font list
+function highlightSelectedFont(fontName) {
+  const fontItems = document.querySelectorAll(".font-item");
+
+  fontItems.forEach((fontItem) => {
+    if (fontItem.textContent === fontName) {
+      fontItem.classList.add("selected-font");
+    } else {
+      fontItem.classList.remove("selected-font");
+    }
+  });
 }
 
 // Add a font to the recently viewed history if it's not already there
