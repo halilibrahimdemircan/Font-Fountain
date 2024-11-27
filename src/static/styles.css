@@ -346,3 +346,7 @@ main {
   font-family: "IBM Plex Sans";
   src: url('./static/fonts/IBMPlexSans-Regular.ttf') format('truetype') ;
 }
+@font-face {
+  font-family: "Inter";
+  src: url('./static/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+}

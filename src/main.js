@@ -2,7 +2,7 @@ import "./static/styles.css";
 
 // Fonts and History
 const fonts = [
-  "Arimo","Caveat", "Dancing Script","Exo", "Fira Sans","Josefin Sans", 
+  "Inter","Arimo","Caveat", "Dancing Script","Exo", "Fira Sans","Josefin Sans", 
   "Lato","Lobster", "Lora", "Merrieweather","Montserrat","Mukta",
   "Noto Sans", "Nunito", "Open Sans", "Pacifico","Playfair Display",
   "Plus Jakarta Sans", "Poppins", "PT Sans", "Quicksand","Raleway",
