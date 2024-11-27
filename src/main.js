@@ -47,7 +47,7 @@ class FontFountainApp {
           <div id="history-list"></div>
         </div>
       </header>
-      <main>
+      <main id="font-fountain">
         <section id="font-preview">
           <div id="preview-container" class="preview-text" contenteditable="true">
             ${this.createCharacterSpans("Whereas disregard and contempt for human rights have resulted")}
@@ -203,8 +203,18 @@ class FontFountainApp {
   // Select a font and apply it to the preview area
   selectFont(fontName) {
     const previewContainer = document.getElementById("preview-container");
+    const previewSection = document.getElementById("font-preview");
+    const mainSection = document.getElementById("font-fountain");
     previewContainer.style.fontFamily = fontName;
-
+  
+    // Smooth scroll to preview section if not in view
+    if (!this.isElementInView(previewSection)) {
+      mainSection.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }
+  
     this.addToHistory(fontName);
     this.highlightSelectedFont(fontName);
   }
@@ -236,6 +246,17 @@ class FontFountainApp {
 
       historyList.prepend(historyItem);
     }
+  }
+
+  //Check if element is in view
+  isElementInView(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
   }
 }
 
