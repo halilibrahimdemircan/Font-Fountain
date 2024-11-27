@@ -33,8 +33,8 @@ body {
 }
 
 #logo {
-  width: 120px;
-  height: 120px;
+  width: 132px;
+  height: 132px;
   object-fit: contain;
   margin-right: var(--spacing-unit);
   transition: transform 0.3s ease;
@@ -69,7 +69,7 @@ body {
 }
 
 main {
-  padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 1.5);
 }
 
 #font-preview {
@@ -146,6 +146,41 @@ main {
 
 .char:hover {
   color: var(--text-color);
+}
+#preview-history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* margin-bottom: var(--spacing-unit); */
+}
+
+#scroll-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.scroll-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.5; /* Varsayılan olarak sönük */
+}
+
+.scroll-btn.enabled {
+  opacity: 1; /* Scroll edilebilir yön parlak */
+}
+
+.scroll-btn:hover {
+  transform: scale(1.1);
+}
+
+.scroll-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
 }
 
 @media (max-width: 768px) {

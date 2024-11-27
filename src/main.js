@@ -1,23 +1,23 @@
 import "./static/styles.css";
 
-// Fonts and History
+// List of available fonts
 const fonts = [
-  "Inter","Arimo","Caveat", "Dancing Script","Exo", "Fira Sans","Josefin Sans", 
-  "Lato","Lobster", "Lora", "Merrieweather","Montserrat","Mukta",
-  "Noto Sans", "Nunito", "Open Sans", "Pacifico","Playfair Display",
-  "Plus Jakarta Sans", "Poppins", "PT Sans", "Quicksand","Raleway",
-  "Roboto","Roboto Slab", "Rokkit", "Rubik", "Source Sans 3",
-   "Titillium Web","Ubuntu", "Work Sans","Volkhov",
-   "Zilla Slab", "Karla", "Varela Round", "Barlow",
+  "Inter", "Arimo", "Caveat", "Dancing Script", "Exo", "Fira Sans", "Josefin Sans",
+  "Lato", "Lobster", "Lora", "Merrieweather", "Montserrat", "Mukta",
+  "Noto Sans", "Nunito", "Open Sans", "Pacifico", "Playfair Display",
+  "Plus Jakarta Sans", "Poppins", "PT Sans", "Quicksand", "Raleway",
+  "Roboto", "Roboto Slab", "Rokkit", "Rubik", "Source Sans 3",
+  "Titillium Web", "Ubuntu", "Work Sans", "Volkhov",
+  "Zilla Slab", "Karla", "Varela Round", "Barlow",
   "Mulish", "Asap", "Arvo", "Amatic SC",
   "Parkinsans", "Inconsolata", "Overpass", "Tinos", "Signika",
-  "Abel", "Archivo", "Manrope", "Public Sans", "IBM Plex Sans",
+  "Abel", "Archivo", "Manrope", "Public Sans", "IBM Plex Sans"
 ];
 
-// Store Recently Viewed Fonts
+// Store recently viewed fonts
 let history = [];
 
-// Initialize the application
+// Initialize the application on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
   initializeApp();
   setupFontList();
@@ -31,7 +31,13 @@ function initializeApp() {
     <header id="app-identity">
       <img src="./static/logo.png" id="logo" alt="Font Fountain Logo">
       <div id="recently-viewed">
-        <h2>Preview History</h2>
+        <div id="preview-history-header">
+          <h2>Preview History</h2>
+          <div id="scroll-controls">
+            <button id="scroll-left" class="scroll-btn" aria-label="Scroll left">&larr;</button>
+            <button id="scroll-right" class="scroll-btn" aria-label="Scroll right">&rarr;</button>
+          </div>
+        </div>
         <div id="history-list"></div>
       </div>
     </header>
@@ -47,20 +53,23 @@ function initializeApp() {
       </footer>
     </main>
   `;
+
+  // Add scroll functionality to preview history
+  setupScrollControls();
 }
 
 // Create span-wrapped characters for the preview
 function createCharacterSpans(text) {
   return text
     .split("")
-    .map((char) => `<span class="char">${char}</span>`)
+    .map(char => `<span class="char">${char}</span>`)
     .join("");
 }
 
 // Populate the font list
 function setupFontList() {
   const fontList = document.getElementById("font-list");
-  fonts.forEach((font) => {
+  fonts.forEach(font => {
     const fontItem = document.createElement("div");
     fontItem.textContent = font;
     fontItem.style.fontFamily = font;
@@ -71,7 +80,7 @@ function setupFontList() {
   });
 }
 
-// Set up the preview area
+// Set up the preview area for dynamic interactions
 function setupPreviewArea() {
   const previewContainer = document.getElementById("preview-container");
 
@@ -79,13 +88,13 @@ function setupPreviewArea() {
     const selection = window.getSelection();
     const range = selection.getRangeAt(0);
     const cursorOffset = getCursorOffset(previewContainer, range);
-    // Recreate the spans while maintaining the cursor position
+
     const text = previewContainer.textContent;
     previewContainer.innerHTML = createCharacterSpans(text);
     restoreCursorPosition(previewContainer, cursorOffset);
   });
 
-  previewContainer.addEventListener("wheel", (event) => {
+  previewContainer.addEventListener("wheel", event => {
     const charElement = event.target.closest(".char");
     if (charElement) {
       handleGlyphRounding(charElement, event);
@@ -94,7 +103,33 @@ function setupPreviewArea() {
   });
 }
 
-// Get the cursor's offset within the contenteditable element
+// Add scrolling functionality to preview history
+function setupScrollControls() {
+  const historyList = document.getElementById("history-list");
+  const scrollLeftButton = document.getElementById("scroll-left");
+  const scrollRightButton = document.getElementById("scroll-right");
+
+  function updateScrollButtons() {
+    const maxScrollLeft = historyList.scrollWidth - historyList.clientWidth;
+    scrollLeftButton.classList.toggle("enabled", historyList.scrollLeft > 0);
+    scrollRightButton.classList.toggle("enabled", historyList.scrollLeft < maxScrollLeft);
+  }
+
+  scrollLeftButton.addEventListener("click", () => {
+    historyList.scrollBy({ left: -800, behavior: "smooth" });
+    updateScrollButtons();
+  });
+
+  scrollRightButton.addEventListener("click", () => {
+    historyList.scrollBy({ left: 800, behavior: "smooth" });
+    updateScrollButtons();
+  });
+
+  historyList.addEventListener("scroll", updateScrollButtons);
+  updateScrollButtons();
+}
+
+// Get the cursor's offset in the preview area
 function getCursorOffset(container, range) {
   let offset = 0;
 
@@ -118,7 +153,7 @@ function getCursorOffset(container, range) {
   return offset;
 }
 
-// Restore the cursor's position within the contenteditable element
+// Restore the cursor's position in the preview area
 function restoreCursorPosition(container, offset) {
   const range = document.createRange();
   const selection = window.getSelection();
@@ -146,7 +181,7 @@ function restoreCursorPosition(container, offset) {
   setCursor(container);
 }
 
-// Handle glyph rounding
+// Handle glyph rounding (change character on scroll)
 function handleGlyphRounding(charElement, event) {
   const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const currentChar = charElement.textContent;
@@ -167,30 +202,22 @@ function selectFont(fontName) {
   const previewContainer = document.getElementById("preview-container");
   previewContainer.style.fontFamily = fontName;
 
-  // Add font to history
   addToHistory(fontName);
-
-  // Highlight the selected font
   highlightSelectedFont(fontName);
 }
 
 // Highlight the selected font in the font list
 function highlightSelectedFont(fontName) {
   const fontItems = document.querySelectorAll(".font-item");
-
-  fontItems.forEach((fontItem) => {
-    if (fontItem.textContent === fontName) {
-      fontItem.classList.add("selected-font");
-    } else {
-      fontItem.classList.remove("selected-font");
-    }
+  fontItems.forEach(fontItem => {
+    fontItem.classList.toggle("selected-font", fontItem.textContent === fontName);
   });
 }
 
-// Add a font to the recently viewed history if it's not already there
+// Add a font to the recently viewed history if not already there
 function addToHistory(fontName) {
   if (!history.includes(fontName)) {
-    history.push(fontName);
+    history.unshift(fontName);
 
     const historyList = document.getElementById("history-list");
     const historyItem = document.createElement("div");
@@ -204,6 +231,6 @@ function addToHistory(fontName) {
       highlightSelectedFont(fontName);
     });
 
-    historyList.appendChild(historyItem);
+    historyList.prepend(historyItem);
   }
 }
