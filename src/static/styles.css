@@ -149,3 +149,200 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
 }
+
+@font-face {
+  font-family: "Arimo";
+  src: url('./static/fonts/Arimo-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Caveat";
+  src: url('./static/fonts/Caveat-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Dancing Script";
+  src: url('./static/fonts/DancingScript-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Exo";
+  src: url('./static/fonts/Exo-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url('./static/fonts/FiraSans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Josefin Sans";
+  src: url('./static/fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Lato";
+  src: url('./static/fonts/Lato-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Lobster";
+  src: url('./static/fonts/Lobster-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Lora";
+  src: url('./static/fonts/Lora-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Merriweather";
+  src: url('./static/fonts/Merriweather-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url('./static/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Mukta";
+  src: url('./static/fonts/Mukta-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url('./static/fonts/NotoSans-VariableFont_wdth,wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Nunito";
+  src: url('./static/fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url('./static/fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Pacifico";
+  src: url('./static/fonts/Pacifico-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url('./static/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url('./static/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Poppins";
+  src: url('./static/fonts/Poppins-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "PT Sans";
+  src: url('./static/fonts/PTSans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url('./static/fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Raleway";
+  src: url('./static/fonts/Raleway-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Roboto";
+  src: url('./static/fonts/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Roboto Slab";
+  src: url('./static/fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Rokkit";
+  src: url('./static/fonts/Rokkit-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Rubik";
+  src: url('./static/fonts/Rubik-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url('./static/fonts/SourceSans3-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Titillium Web";
+  src: url('./static/fonts/TitilliumWeb-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url('./static/fonts/Ubuntu-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url('./static/fonts/WorkSans-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Volkhov";
+  src: url('./static/fonts/Volkhov-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Zilla Slab";
+  src: url('./static/fonts/ZillaSlab-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Karla";
+  src: url('./static/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Varela Round";
+  src: url('./static/fonts/VarelaRound-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Barlow";
+  src: url('./static/fonts/Barlow-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Mulish";
+  src: url('./static/fonts/Mulish-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Asap";
+  src: url('./static/fonts/Asap-VariableFont_wdth,wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Arvo";
+  src: url('./static/fonts/Arvo-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Amatic SC";
+  src: url('./static/fonts/AmaticSC-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Parkinsans";
+  src: url('./static/fonts/Parkinsans-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Inconsolata";
+  src: url('./static/fonts/Inconsolata-VariableFont_wdth,wght.ttf') format('truetype') ;
+}
+@font-face {
+  font-family: "Overpass";
+  src: url('./static/fonts/Overpass-VariableFont_wght.ttf') format('truetype') ;
+}
+@font-face {
+  font-family: "Tinos";
+  src: url('./static/fonts/Tinos-Regular.ttf') format('truetype') ;
+}
+@font-face {
+  font-family: "Signika";
+  src: url('./static/fonts/Signika-VariableFont_GRAD,wght.ttf') format('truetype') ;
+}
+@font-face {
+  font-family: "Abel";
+  src: url('./static/fonts/Abel-Regular.ttf') format('truetype') ;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url('./static/fonts/Archivo-VariableFont_wdth,wght.ttf') format('truetype') ;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url('./static/fonts/Manrope-VariableFont_wght.ttf') format('truetype') ;
+}
+@font-face {
+  font-family: "Public Sans";
+  src: url('./static/fonts/PublicSans-VariableFont_wght.ttf') format('truetype') ;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url('./static/fonts/IBMPlexSans-Regular.ttf') format('truetype') ;
+}

@@ -2,15 +2,15 @@ import "./static/styles.css";
 
 // Fonts and History
 const fonts = [
-  "Roboto", "Lora", "Playfair Display", "Source Sans Pro", "Merriweather",
-  "Montserrat", "Open Sans", "Raleway", "Noto Sans", "PT Sans",
-  "Oswald", "Roboto Slab", "Lobster", "Work Sans", "Poppins",
-  "Ubuntu", "Nunito", "Fira Sans", "Quicksand", "Caveat",
-  "Pacifico", "Dancing Script", "Rubik", "Titillium Web", "Arimo",
-  "Exo", "Mukta", "Rokkitt", "Lato", "Baloo",
-  "Josefin Sans", "Zilla Slab", "Karla", "Varela Round", "Barlow",
-  "Muli", "Heebo", "Asap", "Arvo", "Amatic SC",
-  "Bebas Neue", "Inconsolata", "Overpass", "Tinos", "Signika",
+  "Arimo","Caveat", "Dancing Script","Exo", "Fira Sans","Josefin Sans", 
+  "Lato","Lobster", "Lora", "Merrieweather","Montserrat","Mukta",
+  "Noto Sans", "Nunito", "Open Sans", "Pacifico","Playfair Display",
+  "Plus Jakarta Sans", "Poppins", "PT Sans", "Quicksand","Raleway",
+  "Roboto","Roboto Slab", "Rokkit", "Rubik", "Source Sans 3",
+   "Titillium Web","Ubuntu", "Work Sans","Volkhov",
+   "Zilla Slab", "Karla", "Varela Round", "Barlow",
+  "Mulish", "Asap", "Arvo", "Amatic SC",
+  "Parkinsans", "Inconsolata", "Overpass", "Tinos", "Signika",
   "Abel", "Archivo", "Manrope", "Public Sans", "IBM Plex Sans",
 ];
 
@@ -170,7 +170,7 @@ function selectFont(fontName) {
   addToHistory(fontName);
 }
 
-// Add a font to the recently viewed history
+// Add a font to the recently viewed history if it's not already there
 function addToHistory(fontName) {
   if (!history.includes(fontName)) {
     history.push(fontName);
